@@ -1,0 +1,17 @@
+node_modules
+talkboard-app/node_modules
+talkboard-app/dist
+talkboard-app/build
+postgresql
+# Keep environment variables out of version control
+.env
+
+talkboard-app/.env
+talkboard-app/.env.development.local
+talkboard-app/.env.test.local
+talkboard-app/.env.production.local
+talkboard-app/.env.local
+
+postgresql
+
+shell.nix
