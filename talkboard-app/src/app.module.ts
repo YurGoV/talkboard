@@ -7,6 +7,7 @@ import { UserService } from './user/user.service';
 import { UserController } from './user/user.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getDatabaseConfig } from './configs/database.config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { getDatabaseConfig } from './configs/database.config';
     }),
     TypeOrmModule.forFeature([User, Comment]),
     UserModule,
+    AuthModule,
   ],
   controllers: [UserController],
   providers: [UserService],
