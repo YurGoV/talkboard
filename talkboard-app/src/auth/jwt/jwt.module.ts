@@ -19,4 +19,3 @@ import { getJwtConfig } from 'src/configs/jwt.config';
   exports: [JwtAuthService],
 })
 export class JwtAuthModule {}
-export { JwtModule };
