@@ -42,7 +42,6 @@ export class JwtAuthService {
 
   async createJWT(email: string) {
     const payload = { email };
-    console.log({ payload });
     const token: string = await this.jwtService.signAsync(payload);
     return token;
   }

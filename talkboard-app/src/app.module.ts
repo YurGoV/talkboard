@@ -9,6 +9,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getDatabaseConfig } from './configs/database.config';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthModule } from './auth/jwt/jwt.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { JwtAuthModule } from './auth/jwt/jwt.module';
     UserModule,
     AuthModule,
     JwtAuthModule,
+    CloudinaryModule,
   ],
   controllers: [UserController],
   providers: [UserService],

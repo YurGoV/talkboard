@@ -9,12 +9,12 @@ import {
 } from 'class-validator';
 
 export class CreateUserDto {
-  @Length(3, 15, {
-    message: 'first name length must be from 3 to 15 symbols',
+  @Length(2, 15, {
+    message: 'first name length must be from 2 to 15 symbols',
   })
   @IsNotEmpty()
   @IsString()
-  @ApiProperty({ example: 'John Doy ', description: 'user name' })
+  @ApiProperty({ example: 'John Doe ', description: 'user name' })
   userName: string;
 
   @IsNotEmpty()
