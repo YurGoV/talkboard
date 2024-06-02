@@ -19,6 +19,9 @@ export class User {
   avatarUrl: string;
 
   @Column({ nullable: true })
+  avatarId: string;
+
+  @Column({ nullable: true })
   password: string;
 
   @Column({ nullable: true })

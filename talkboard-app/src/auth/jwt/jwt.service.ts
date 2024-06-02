@@ -39,4 +39,10 @@ export class JwtAuthService {
       throw new HttpException('User not found', HttpStatus.NOT_FOUND);
     }
   }
+
+  async createJWT(email: string) {
+    const payload = { email };
+    const token: string = await this.jwtService.signAsync(payload);
+    return token;
+  }
 }
