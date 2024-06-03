@@ -21,6 +21,9 @@ This is a backend application for managing comments.
 
 ## Installation and Running:
 ```bash
-cd <root project folder>
+cd <root project folder>./talkboard-app
+pnpm i
+cd ..
 docker-compose build
 docker-compose up -d
+```
