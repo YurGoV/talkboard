@@ -17,8 +17,8 @@ export class Comment {
   user: User;
 
   @ManyToOne(() => Comment, { nullable: true })
-  @JoinColumn({ name: 'parent_comment_id' })
-  parentComment: Comment;
+  @JoinColumn({ name: 'parrent_comment_id' })
+  parrentComment: Comment | null;
 
   @Column()
   content: string;
@@ -26,6 +26,15 @@ export class Comment {
   @Column({ nullable: true })
   imageUrl: string;
 
+  @Column({ nullable: true })
+  imageId: string;
+
   @Column({ default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
+
+  @Column()
+  user_id: number;
+
+  @Column({ nullable: true })
+  parrent_comment_id: number;
 }

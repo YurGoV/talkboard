@@ -16,9 +16,9 @@ services:
   talkboard_app:
     build:
       context: ./talkboard-app/
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4141:4141"
     depends_on:
       - postgres
     environment:

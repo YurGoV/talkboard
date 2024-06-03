@@ -10,6 +10,10 @@ import { getDatabaseConfig } from './configs/database.config';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthModule } from './auth/jwt/jwt.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { CommentModule } from './comment/comment.module';
+import { CommentService } from './comment/comment.service';
+import { CommentController } from './comment/comment.controller';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -19,13 +23,15 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
       useFactory: getDatabaseConfig,
       inject: [ConfigService],
     }),
+
     TypeOrmModule.forFeature([User, Comment]),
     UserModule,
     AuthModule,
     JwtAuthModule,
     CloudinaryModule,
+    CommentModule,
   ],
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UserController, CommentController],
+  providers: [UserService, CommentService, JwtService],
 })
 export class AppModule {}
