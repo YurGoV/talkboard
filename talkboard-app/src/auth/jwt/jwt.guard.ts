@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Injectable,
 } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entities/User.entity';
@@ -16,6 +17,7 @@ export class JwtAuthGuard implements CanActivate {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     private readonly jwtService: JwtService,
+    private readonly configService: ConfigService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -28,7 +30,9 @@ export class JwtAuthGuard implements CanActivate {
 
     let decodedToken: any | null = null;
     try {
-      decodedToken = await this.jwtService.verifyAsync(token);
+      decodedToken = await this.jwtService.verifyAsync(token, {
+        secret: this.configService.get('JWT_SECRET'),
+      });
     } catch (error: any) {
       if (error?.message === 'jwt expired') {
         throw new HttpException('jwt expired', HttpStatus.NOT_ACCEPTABLE);

@@ -2,7 +2,7 @@ import { SchemaObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.inte
 
 export const userObject = {
   userName: { type: 'string', example: 'John Doe' },
-  email: { type: 'string', example: 'example@example.com' },
+  email: { type: 'string', example: 'email@email.com' },
   photo: {
     type: 'string',
     example:

@@ -19,10 +19,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
   async validate({ email }) {
-    await this.userRepository.findOneBy({ email });
-    // if (result.affected === 0) {
-    //   throw new HttpException('User not found', HttpStatus.NOT_FOUND);
-    // }
-    return { email };
+    const user = await this.userRepository.findOneBy({ email });
+
+    return { email: user.email };
   }
 }
