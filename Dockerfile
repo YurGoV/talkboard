@@ -8,7 +8,7 @@ RUN pnpm fetch
 
 COPY . .
 
-EXPOSE 4141
+EXPOSE 4142
 
 CMD ["pnpm", "run", "start:dev"]
 
